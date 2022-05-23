@@ -11,6 +11,7 @@ typedef struct
     int idTipo; //Validar
     float precio;
     int libre;
+    int idCliente;
 } eNotebook;
 
 #endif // NOTEBOOK_H_INCLUDED
