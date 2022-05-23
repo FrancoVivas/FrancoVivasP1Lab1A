@@ -11,7 +11,7 @@ int listarServicios(eServicio *servicio, int tamSer)
 
     for(int i = 0; i < tamSer; i++)
     {
-        printf(" %5d   %15s    %8.2f\n", servicio[i].idServicio, servicio[i].descripcion, servicio[i].precio);
+        printf(" %5d   %15s    %8.2f\n", servicio[i].idServicio,, servicio[i].descripcion, servicio[i].precio);
         retorno = 0;
     }
     printf("\n\n");
