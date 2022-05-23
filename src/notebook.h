@@ -1,33 +1,27 @@
-#ifndef EMPLEADO_H_INCLUDED
-#define EMPLEADO_H_INCLUDED
-
-
+#ifndef NOTEBOOK_H_INCLUDED
+#define NOTEBOOK_H_INCLUDED
+#include "tipo.h"
+#include "marca.h"
 
 typedef struct
 {
-    int id;
-    char modelo[20];
-    int idMarca;
-    int idTipo;
+    int idNotebook;
+    char modelo [20];
+    int idMarca; //Validar
+    int idTipo; //Validar
     float precio;
-    int isEmpty;
+    int libre;
 } eNotebook;
 
-int mostrarNotebook(eNotebook e, eTrabajo trabajos[], int tam);
-int listarNotebooks(eNotebook vec[], int tam, eTrabajo trabajos[], int tamSec);
-int cargarNotebooks(eNotebook vec[], int tam);
-int ordenarNotebooksIdAsc(eNotebook vec[], int tam);
-int ordenarNotebooksMarcaAsc(eNotebook vec[], int tam);
-int ordenarNotebooksPrecioAsc(eNotebook vec[], int tam);
+#endif // NOTEBOOK_H_INCLUDED
 
-int inicializarNotebooks(eNotebook vec[], int tam);
-
-int buscarNotebookLibre(eNotebook vec[], int tam, int* pIndex);
-int buscarNotebook(eNotebook vec[], int tam,int legajo, int* pIndex);
-int altaNotebook(eNotebook vec[], int tam, int* pLegajo);
-int bajaNotebook(eNotebook vec[], int tam,eTrabajo trabajos[], int tamSec);
-int modificarNotebook(eNotebook vec[], int tam,eTrabajo trabajos[], int tamSec);
-int hardcodearNotebook(eNotebook vec[], int tam, int cant, int* pLegajo);
-int menuModificarNotebook();
-
-#endif // EMPLEADO_H_INCLUDED
+int inicializarNotebooks(eNotebook *notebook, int tam);
+void hardcodearNotebooks(eNotebook *notebook);
+void listarNotebook(eNotebook notebook, eTipo *tipo, int tamTipo, eMarca *marca, int tamMarca);
+int listarNotebooks(eNotebook *notebook, int tam, eTipo *tipo, int tamTipo, eMarca *marca, int tamMarca);
+int listarNotebooksOrdenado(eNotebook *notebook, int tam, eTipo *tipo, int tamTipo, eMarca *marca, int tamMarca);
+int bajaNotebook(eNotebook *notebook, int tam, eMarca *marca, int tamMarca, eTipo *tipo, int tamTipo);
+int menuModificar();
+int modificarNotebook(eNotebook *notebook, int tam, eMarca *marca, int tamMarca, eTipo *tipo, int tamTipo);
+int buscarIndiceLibre(eNotebook *notebook, int tam);
+int altaNotebook(eNotebook *notebook, int tam, eTipo *tipo, int tamTipo, eMarca *marca, int tamMarca);
